@@ -128,7 +128,9 @@ local Button = Floors:NewButton("Auto Complete Floor (NOT ALL FLOORS CAN BE COMP
     if workspace:FindFirstChild("WALL_OF") then 
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.WALL_OF.Build.YOU_WIN.CFrame
     end
-
+    if workspace:FindFirstChild("HALL_OF") then 
+        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.HALL_OF.Build.YOU_WIN.CFrame
+    end
     if workspace:FindFirstChild("TheBackrooms") then 
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
     end
@@ -201,6 +203,11 @@ end)
 local Button = Floors:NewButton("Win WALL OF", function(value)
     if workspace:FindFirstChild("WALL_OF") then 
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.WALL_OF.Build.YOU_WIN.CFrame
+    end
+end)
+local Button = Floors:NewButton("Win HALL OF", function(value)
+    if workspace:FindFirstChild("HALL_OF") then 
+        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.HALL_OF.Build.YOU_WIN.CFrame
     end
 end)
 local Button = Floors:NewButton("Win in SuspiciouslyLongRoom", function(value)
