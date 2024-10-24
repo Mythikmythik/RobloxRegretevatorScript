@@ -70,7 +70,7 @@ end)
 
 
 
-local Speed = Tab1:NewSlider("Player Speed", "", true, "/", {min = 12, max = 99, default = 16}, function(value)
+local Speed = Tab1:NewSlider("Player Speed", "", true, "/", {min = 12, max = 300, default = 16}, function(value)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = value
 end)
 local Jump = Tab1:NewSlider("Player Jump Power", "", true, "/", {min = 10, max = 50, default = 30}, function(value)
