@@ -124,7 +124,9 @@ local Button = Floors:NewButton("Auto Complete Floor (NOT ALL FLOORS CAN BE COMP
     if workspace:FindFirstChild("FindThePath") then 
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.FindThePath.Build.Prototype.SpecPart.CFrame
     end
-
+    if workspace:FindFirstChild("RedBallTemple") then 
+        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.RedBallTemple.Build.Ram.HumanoidRootPart.CFrame
+    end
     if workspace:FindFirstChild("WALL_OF") then 
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.WALL_OF.Build.YOU_WIN.CFrame
     end
@@ -198,6 +200,11 @@ end)
 local Button = Floors:NewButton("Win in Find The Path", function(value)
     if workspace:FindFirstChild("FindThePath") then 
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.FindThePath.Build.Prototype.SpecPart.CFrame
+    end
+end)
+local Button = Floors:NewButton("TP to end in RedBallTemple", function(value)
+    if workspace:FindFirstChild("RedBallTemple") then 
+        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.RedBallTemple.Build.Ram.HumanoidRootPart.CFrame
     end
 end)
 local Button = Floors:NewButton("Win WALL OF", function(value)
