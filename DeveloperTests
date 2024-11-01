@@ -233,7 +233,7 @@ local Button = Floors:NewButton("Win in Backrooms", function(value)
         Notif:Notify("Teleported to the safe zone", 3, "success")
     end
 end)
-local Button = Floors:NewButton("Win in Stanely Room", function(value)
+local Button = Floors:NewButton("Destroy Cement in Stanely Room", function(value)
     if workspace:FindFirstChild("StanelyRoom") then
 	workspace.StanelyRoom.Build.CementFloor:Destroy()
         Notif:Notify("Detected Floor! StanelyRoom, Deleting cement floor...", 3, "information")
