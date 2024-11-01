@@ -1,3 +1,5 @@
+-- WARNING!
+-- This script is used by developer for tests, only future functions of the script will be here
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Consistt/Ui/main/UnLeaked"))()
 local search = game.Workspace:GetDescendants()
 
