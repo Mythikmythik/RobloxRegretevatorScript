@@ -331,6 +331,11 @@ local Button = Floors:NewButton("TP to Elevator (if you fall into void)", functi
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
     end
 end)
+local Button = Floors:NewButton("(TEST) Win in HotelFloor6", function(value)
+	Notif:Notify("Teleported to the end", 3, "success")
+ 	getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.HotelFloor6.Build.NPC_NODES.NODE_END_HALL.CFrame
+end)
+
 local Button = Floors:NewButton("TP to Finish in Snow Slope", function(value)
     if workspace:FindFirstChild("SnowySlope") then 
 	Workspace.SnowySlope.Build.FinishFlag.Part:Destroy()
