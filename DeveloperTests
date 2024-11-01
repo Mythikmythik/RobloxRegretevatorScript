@@ -392,13 +392,13 @@ while true do
             if v:IsA("ProximityPrompt") and v.Name ~= "ItemStockProximityPrompt" then
                 if shared.PPTeleport == true then
 		    if v.Parent ~= nil then
+			wait(0.09)
                     if v.Parent:IsA("BasePart") then
                     	getRoot(game.Players.LocalPlayer.Character).CFrame = v.Parent.CFrame
 		    end
                     if v.Parent:IsA("Model") and not v:FindFirstChild("Humanoid") then
                     	getRoot(game.Players.LocalPlayer.Character).CFrame = v.Parent:GetPivot(v)
 		    end
-		    wait(0.09)
 		    end
                 end
                 v.HoldDuration = 0
