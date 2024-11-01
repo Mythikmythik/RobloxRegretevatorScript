@@ -285,6 +285,7 @@ while true do
     if shared.Farm == true then -- Thanks to MrXrer
         for i,v in pairs(workspace:GetDescendants()) do
             if not workspace:FindFirstChild("TNTRun") then
+		if not workspace:FindFirstChild("OFFICE_OF") then
                 if v.Name == "Coin" or v.Name == "Coins" and v:IsA("BasePart") then
                     getRoot(game.Players.LocalPlayer.Character).CFrame = v.CFrame
 		    wait(0.05)
@@ -302,6 +303,7 @@ while true do
                 if v.Name == "SillyGreenBall" then
                     findAnyTouchInsertInPart(v)
                 end
+		end
             end
         end
 	end
