@@ -382,6 +382,7 @@ local FinishedLoading = Notif:Notify("Loaded Script", 4, "success")
 while true do
     wait(0.0002)
     if shared.Win == true then
+	print(doeng)
 	if workspace.Values.CurrentRoom == nil then
 	    getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
 	    doeng = true
