@@ -13,13 +13,13 @@ end)()
 local Floors = Wm:AddWatermark("Floor : Loading")
 coroutine.wrap(function()
     while wait(.75) do
-        Floors:Text("Loading : " .. tostring(workspace.Values.Floors))
+        Floors:Text("Floor : " .. tostring(workspace.Values.Floors.Value))
     end
 end)()
 local Floor = Wm:AddWatermark("Current Floor : Loading")
 coroutine.wrap(function()
     while wait(.75) do
-        Floor:Text("Current Floor : " .. tostring(workspace.Values.CurrentRoom))
+        Floor:Text("Current Floor : " .. tostring(workspace.Values.CurrentRoom.Value))
     end
 end)()
 
