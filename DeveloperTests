@@ -14,7 +14,7 @@ local Notif = library:InitNotifications()
 local waita = 30
 local LoadingScript = Notif:Notify("Loading Regretevator Script. Please wait...", 3, "information")
 
-library.title = "Regretevator OP Script v1.1 TEST VERSION"
+library.title = "Regretevator OP Script v1.1"
 
 library:Introduction()
 wait(1)
