@@ -385,7 +385,7 @@ while true do
 	    getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
 	end
 	if workspace.Values.CurrentRoom ~= nil then
-	wait(4.6)
+	wait(5)
 	if workspace:FindFirstChild("IntenseObby") then 
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.IntenseObby.ENDBLOCK.CFrame
     elseif workspace:FindFirstChild("SnowySlope") then 
