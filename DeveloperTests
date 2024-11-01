@@ -452,59 +452,20 @@ while true do
          getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace:FindFirstChild("SuspiciouslyLongRoom").Checkpoints.EndCheckpoint.CFrame
 	end
 	end
-    elseif workspace:FindFirstChild("Minefield") then 
-	if workspace.Minefield:FindFirstChild("Build") then
-	if workspace.Minefield.Build:FindFirstChild("Decor") then
-	if workspace.Minefield.Build.Decor:FindFirstChild("etc") then
-	if workspace.Minefield.Build.Decor.etc:FindFirstChild("IceCreamTruck") then
-	if workspace.Minefield.Build.Decor.etc.IceCreamTruck:FindFirstChild("Tube") then
-	if workspace.Minefield.Build.Decor.etc.IceCreamTruck.Tube:FindFirstChild("IcecreamGiver") then
-         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Minefield.Build.Decor.etc.IceCreamTruck.Tube.IcecreamGiver.CFrame
-	end
-	end
-	end
-	end
-	end
-	end
-    elseif workspace:FindFirstChild("FloodFillMine") then 
-	if workspace.FloodFillMine:FindFirstChild("Build") then
-	if workspace.FloodFillMine.Build:FindFirstChild("Shield") then
-	if workspace.FloodFillMine.Build.Shield:FindFirstChild("Neon") then
-         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.FloodFillMine.Build.Shield.Neon.CFrame
-	end
-	end
-	end
-    elseif workspace:FindFirstChild("FindThePath") then 
-	if workspace.FindThePath:FindFirstChild("Build") then
-	if workspace.FindThePath.Build:FindFirstChild("Prototype") then
-	if workspace.FindThePath.Build.Prototype:FindFirstChild("SpecPart") then
-          getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.FindThePath.Build.Prototype.SpecPart.CFrame
-	end
-	end
-	end
-    elseif workspace:FindFirstChild("Jeremy") then 
-	if workspace.Jeremy:FindFirstChild("Build") then
-	if workspace.Jeremy.Build:FindFirstChild("Button") then
-           getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Jeremy.Build.Button:GetPivot()
-	end
-	end
-    elseif workspace:FindFirstChild("RedBallTemple") then 
-	if workspace.RedBallTemple:FindFirstChild("Build") then
-	if workspace.RedBallTemple.Build:FindFirstChild("Ram") then
-	if workspace.RedBallTemple.Build.Ram:FindFirstChild("HumanoidRootPart") then
-          getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.RedBallTemple.Build.Ram.HumanoidRootPart.CFrame
-	end
-	end
-	end
-    elseif workspace:FindFirstChild("HotelFloor6") then
+
+    elseif workspace:FindFirstChild("StanelyRoom") then
 	if workspace.HotelFloor6:FindFirstChild("Build") then
-	if workspace.HotelFloor6.Build:FindFirstChild("EndPart") then
-        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.HotelFloor6.Build.EndPart.CFrame
+	if workspace.HotelFloor6.Build:FindFirstChild("Generated") then
+	if workspace.HotelFloor6.Build.Generated:FindFirstChild("Ending") then
+	if workspace.HotelFloor6.Build.Generated.Ending:FindFirstChild("Jimmy") then
+        getRoot(game.Players.LocalPlayer.Character).CFrame = workspace.StanelyRoom.Build.Generated.Ending.Jimmy:GetPivot()
 	Notif:Notify("Teleported to the end part", 3, "success")
 	end
 	end
+	end
         end
-    
+	end
+	end
     elseif workspace:FindFirstChild("WALL_OF") then 
 	if workspace.RandomMazeWindows:FindFirstChild("YOU_WIN") then
           getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.WALL_OF.Build.YOU_WIN.CFrame
