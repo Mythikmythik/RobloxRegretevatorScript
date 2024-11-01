@@ -411,6 +411,7 @@ while true do
     elseif workspace:FindFirstChild("Obby") then    
 	if workspace.Obby:FindFirstChild("Build") then
 	if workspace.Obby.Build:FindFirstChild("EndPart") then
+         wait(3.6)
          getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Obby.Build.EndPart.CFrame
 	end
 	end
