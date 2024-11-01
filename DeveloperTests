@@ -254,7 +254,7 @@ local Button = Floors:NewButton("Win in Find The Path", function(value)
 	Notif:Notify("Teleported to the end", 3, "success")
     end
 end)
-local Button = Floors:NewButton("Win in Find The Path", function(value)
+local Button = Floors:NewButton("Win in Jeremy", function(value)
     if workspace:FindFirstChild("Jeremy") then 
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Jeremy.Build.Button:GetPivot()
         Notif:Notify("Detected Floor! Jeremy, Teleported to the button", 3, "success")
