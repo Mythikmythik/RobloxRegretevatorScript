@@ -396,25 +396,25 @@ while true do
     elseif workspace:FindFirstChild("RandomMazeWindows"):FindFirstChild("Build"):FindFirstChild("Part") then
         Workspace.RandomMazeWindows.Build.Part:Destroy()
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.RandomMazeWindows.Build.Part.CFrame
-    elseif workspace:FindFirstChild("GumballMachine") then     
+    elseif workspace:FindFirstChild("GumballMachine"):FindFirstChild("Build"):FindFirstChild("WinPart") then     
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.GumballMachine.Build.WinPart.CFrame
-    elseif workspace:FindFirstChild("Obby") then     
+    elseif workspace:FindFirstChild("Obby"):FindFirstChild("Build"):FindFirstChild("EndPart") then     
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Obby.Build.EndPart.CFrame
-    elseif workspace:FindFirstChild("SuspiciouslyLongRoom") then 
+    elseif workspace:FindFirstChild("SuspiciouslyLongRoom"):FindFirstChild("Checkpoints"):FindFirstChild("EndCheckpoint") then 
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace:FindFirstChild("SuspiciouslyLongRoom").Checkpoints.EndCheckpoint.CFrame
-    elseif workspace:FindFirstChild("Minefield") then 
+    elseif workspace:FindFirstChild("Minefield"):FindFirstChild("Build"):FindFirstChild("Decor"):FindFirstChild("etc"):FindFirstChild("IceCreamTruck"):FindFirstChild("Tube"):FindFirstChild("IcecreamGiver") then 
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Minefield.Build.Decor.etc.IceCreamTruck.Tube.IcecreamGiver.CFrame
-    elseif workspace:FindFirstChild("FloodFillMine") then 
+    elseif workspace:FindFirstChild("FloodFillMine"):FindFirstChild("Build"):FindFirstChild("Shield"):FindFirstChild("Neon") then 
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.FloodFillMine.Build.Shield.Neon.CFrame
-    elseif workspace:FindFirstChild("FindThePath") then 
+    elseif workspace:FindFirstChild("FindThePath"):FindFirstChild("Build"):FindFirstChild("Prototype"):FindFirstChild("SpecPart") then 
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.FindThePath.Build.Prototype.SpecPart.CFrame
-    elseif workspace:FindFirstChild("Jeremy") then 
+    elseif workspace:FindFirstChild("Jeremy"):FindFirstChild("Build"):FindFirstChild("Button") then 
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Jeremy.Build.Button:GetPivot()
-    elseif workspace:FindFirstChild("RedBallTemple") then 
+    elseif workspace:FindFirstChild("RedBallTemple"):FindFirstChild("Build"):FindFirstChild("Ram"):FindFirstChild("HumanoidRootPart") then 
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.RedBallTemple.Build.Ram.HumanoidRootPart.CFrame
-    elseif workspace:FindFirstChild("WALL_OF") then 
+    elseif workspace:FindFirstChild("WALL_OF"):FindFirstChild("YOU_WIN") then 
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.WALL_OF.Build.YOU_WIN.CFrame
-    elseif workspace:FindFirstChild("HALL_OF") then 
+    elseif workspace:FindFirstChild("HALL_OF"):FindFirstChild("YOU_WIN") then 
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.HALL_OF.Build.YOU_WIN.CFrame
     elseif workspace:FindFirstChild("TheBackrooms") then 
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
@@ -434,9 +434,9 @@ while true do
         shared.teaalt = true
     elseif workspace:FindFirstChild("Dance") then 
         shared.dance = true
-    elseif workspace:FindFirstChild("Superhighway") then
+    elseif workspace:FindFirstChild("Superhighway"):FindFirstChild("WinPoint") then
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Superhighway.WinPoint.CFrame
-    elseif workspace:FindFirstChild("StanelyRoom") then
+    elseif workspace:FindFirstChild("StanelyRoom"):FindFirstChild("Build"):FindFirstChild("CementFloor") then
 	workspace.StanelyRoom.Build.CementFloor:Destroy()
 	if workspace.StanelyRoom.Build:FindFirstChild("CementFloor") then
 	    Notif:Notify("Failed to delete cement floor, Make sure floor is fully loaded", 3, "error")
