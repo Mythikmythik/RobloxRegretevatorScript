@@ -3,7 +3,7 @@
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Consistt/Ui/main/UnLeaked"))()
 local search = game.Workspace:GetDescendants()
 
-local Wm = library:Watermark("Regretevator OP Script TEST VERSION | v 1.1 | " .. "Hi, " .. library:GetUsername())
+local Wm = library:Watermark("Regretevator OP Script | v 1.1 | " .. "Hi, " .. library:GetUsername())
 local FpsWm = Wm:AddWatermark("FPS : Loading")
 coroutine.wrap(function()
     while wait(.75) do
@@ -153,6 +153,11 @@ local Button = Floors:NewButton("Auto Complete Floor (NOT ALL FLOORS CAN BE COMP
             getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
         end
         Notif:Notify("Detected Floor! TheBackrooms", 3, "success")
+    elseif workspace:FindFirstChild("TNTRun") then 
+        if workspace:FindFirstChild("Elevator") then 
+            getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
+        end
+        Notif:Notify("Detected Floor! TNTRun, Teleported to the safe zone", 3, "success")
     elseif workspace:FindFirstChild("TeapotDodgeball") then 
         shared.tea = true
         Notif:Notify("Detected Floor! TeapotDodgeball", 3, "success")
