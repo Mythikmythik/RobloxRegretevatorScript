@@ -165,7 +165,7 @@ local Button = Floors:NewButton("Auto Complete Floor (NOT ALL FLOORS CAN BE COMP
     elseif workspace:FindFirstChild("Superhighway") then
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Superhighway.CheckpointRespawn.WinPoint.CFrame
         Notif:Notify("Detected Floor! Superhighway", 3, "success")
-    elseif workspace:FindFirstChild("StanelyRoom")
+    elseif workspace:FindFirstChild("StanelyRoom") then
 	workspace.StanelyRoom.Build.CementFloor:Destroy()
         Notif:Notify("Detected Floor! StanelyRoom, Deleting cement floor...", 3, "information")
 	if not workspace.StanelyRoom.Build:FindFirstChild("CementFloor") then
@@ -207,7 +207,7 @@ local Button = Floors:NewButton("Win in Backrooms", function(value)
     end
 end)
 local Button = Floors:NewButton("Win in Stanely Room", function(value)
-    if workspace:FindFirstChild("StanelyRoom")
+    if workspace:FindFirstChild("StanelyRoom") then
 	workspace.StanelyRoom.Build.CementFloor:Destroy()
         Notif:Notify("Detected Floor! StanelyRoom, Deleting cement floor...", 3, "information")
 	wait(0.2)
@@ -401,6 +401,7 @@ while true do
             
         if not workspace:FindFirstChild("TeapotDodgeball") then 
             getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
+	    shared.tea = false
         end
     end
     if shared.corners == true then
@@ -409,6 +410,7 @@ while true do
         end
         if not workspace:FindFirstChild("FourCorners") then 
             getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
+	    shared.corners = false
         end
     end
     if shared.teaalt == true then
@@ -417,6 +419,7 @@ while true do
         end
         if not workspace:FindFirstChild("TeapotTraversal") then 
             getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
+	    shared.teaalt = false
         end
     end
     if shared.dance == true then
@@ -425,6 +428,7 @@ while true do
         end
         if not workspace:FindFirstChild("Dance") then 
             getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
+	    shared.dance = false
         end
     end
 end
