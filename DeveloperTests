@@ -528,7 +528,7 @@ while true do
         for i,v in pairs(workspace:GetDescendants()) do
             if not workspace:FindFirstChild("TNTRun") then
 		if not workspace:FindFirstChild("OFFICE_OF") then
-                if v.Name == "Coin" or v.Name == "Coins" and v:IsA("BasePart") and v.Parent ~= "Motor6D" then
+                if v.Name == "Coin" or v.Name == "Coins" and v:IsA("BasePart") and not v.Parent:IsA("Motor6D") then
                     getRoot(game.Players.LocalPlayer.Character).CFrame = v.CFrame
 		    wait(0.05)
 		    getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
