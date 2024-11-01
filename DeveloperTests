@@ -3,7 +3,7 @@
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Consistt/Ui/main/UnLeaked"))()
 local search = game.Workspace:GetDescendants()
 
-local Wm = library:Watermark("Regretevator OP Script | v 1.1 | " .. "Hi, " .. library:GetUsername())
+local Wm = library:Watermark("Regretevator OP Script TEST VERSION | v 1.1 | " .. "Hi, " .. library:GetUsername())
 local FpsWm = Wm:AddWatermark("FPS : Loading")
 coroutine.wrap(function()
     while wait(.75) do
@@ -14,7 +14,7 @@ local Notif = library:InitNotifications()
 local waita = 30
 local LoadingScript = Notif:Notify("Loading Regretevator Script. Please wait...", 3, "information") -- notification, alert, error, success, information
 
-library.title = "Regretevator OP Script v1.1"
+library.title = "Regretevator OP Script v1.1 TEST VERSION"
 
 library:Introduction()
 wait(1)
@@ -315,7 +315,7 @@ while true do
     if shared.PPInsta == true then  
         for i,v in ipairs(game:GetService("Workspace"):GetDescendants()) do
             if v:IsA("ProximityPrompt") and v.Name ~= "ItemStockProximityPrompt" then
-                if shared.PPTeleport == true and v.Parent:IsA("BasePart") or v.Parent:IsA("Model") then
+                if shared.PPTeleport == true and (v.Parent:IsA("BasePart") or v.Parent:IsA("Model")) then
                     if v.Parent:IsA("BasePart") then
                     	getRoot(game.Players.LocalPlayer.Character).CFrame = v.Parent.CFrame
 		    end
