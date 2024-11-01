@@ -504,19 +504,7 @@ while true do
 	end
 	end
         end
-    elseif workspace:FindFirstChild("StanelyRoom") then
-	if workspace.HotelFloor6:FindFirstChild("Build") then
-	if workspace.HotelFloor6.Build:FindFirstChild("Generated") then
-	if workspace.HotelFloor6.Build.Generated:FindFirstChild("Ending") then
-	if workspace.HotelFloor6.Build.Generated.Ending:FindFirstChild("Jimmy") then
-        getRoot(game.Players.LocalPlayer.Character).CFrame = workspace.StanelyRoom.Build.Generated.Ending.Jimmy:GetPivot()
-	Notif:Notify("Teleported to the end part", 3, "success")
-	end
-	end
-        end
-	end
-	end
-
+    
     elseif workspace:FindFirstChild("WALL_OF") then 
 	if workspace.RandomMazeWindows:FindFirstChild("YOU_WIN") then
           getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.WALL_OF.Build.YOU_WIN.CFrame
