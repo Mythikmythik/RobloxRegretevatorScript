@@ -319,7 +319,7 @@ while true do
                     if v.Parent:IsA("BasePart") then
                     	getRoot(game.Players.LocalPlayer.Character).CFrame = v.Parent.CFrame
 		    end
-                    if v.Parent:IsA("Model") then
+                    if v.Parent:IsA("Model") and not v:FindFirstChild("Humanoid") then
                     	getRoot(game.Players.LocalPlayer.Character).CFrame = v.Parent:GetPivot(v)
 		    end
                 end
