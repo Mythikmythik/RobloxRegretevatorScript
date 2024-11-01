@@ -31,7 +31,7 @@ local Label1 = Tab1:NewLabel("Player Modifers", "center")--"left", "center", "ri
 
 local Credits1 = Main:NewLabel("Script Creator : mythik_25 (Discord)", "center")--"left", "center", "right"
 local Credits2 = Main:NewLabel("Coin Farm (MODIFIED BY ME) : MrXrer", "center")--"left", "center", "right"
-
+local Credits2 = Main:NewLabel("Energize : illremember", "center")--"left", "center", "right"
 -- Help Functions
 function getRoot(char)
 	local rootPart = char:FindFirstChild('HumanoidRootPart') or char:FindFirstChild('Torso') or char:FindFirstChild('UpperTorso')
