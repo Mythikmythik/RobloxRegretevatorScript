@@ -557,9 +557,13 @@ while true do
 		    if v.Parent ~= nil then
                     if v.Parent:IsA("BasePart") then
                     	getRoot(game.Players.LocalPlayer.Character).CFrame = v.Parent.CFrame
+                        v.HoldDuration = 0
+                        fireproximityprompt(v)
 		    end
                     if v.Parent:IsA("Model") and not v:FindFirstChild("Humanoid") then
                     	getRoot(game.Players.LocalPlayer.Character).CFrame = v.Parent:GetPivot(v)
+                        v.HoldDuration = 0
+                        fireproximityprompt(v)
 		    end
 		    end
                 end
