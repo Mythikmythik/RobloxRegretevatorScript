@@ -374,7 +374,7 @@ local Button = Floors:NewButton("TP to End in Intense Obby", function(value)
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.IntenseObby.ENDBLOCK.CFrame
     end
 end)
-
+local doeng = true
 -- Show notification about script loaded
 local FinishedLoading = Notif:Notify("Loaded Script", 4, "success")
 
@@ -384,8 +384,10 @@ while true do
     if shared.Win == true then
 	if workspace.Values.CurrentRoom == nil then
 	    getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
+	    doeng = true
 	end
-	if workspace.Values.CurrentRoom ~= nil then
+	if workspace.Values.CurrentRoom ~= nil and doeng == true then
+	   doeng = false
 	   if workspace:FindFirstChild("IntenseObby") then 
 	      if workspace.IntenseObby:FindFirstChild("ENDBLOCK") then
                  getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.IntenseObby.ENDBLOCK.CFrame
