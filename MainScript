@@ -349,13 +349,6 @@ local Button = Floors:NewButton("TP to Elevator (if you fall into void)", functi
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
     end
 end)
-local Button = Floors:NewButton("(TEST) Win in HotelFloor6", function(value)
-    if workspace:FindFirstChild("HotelFloor6") then 
-	Notif:Notify("Teleported to the end", 3, "success")
- 	getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.HotelFloor6.Build.NPC_NODES.NODE_END_HALL.CFrame
-    end
-end)
-
 local Button = Floors:NewButton("TP to Finish in Snow Slope", function(value)
     if workspace:FindFirstChild("SnowySlope") then 
 	Workspace.SnowySlope.Build.FinishFlag.Part:Destroy()
@@ -382,12 +375,11 @@ local FinishedLoading = Notif:Notify("Loaded Script", 4, "success")
 while true do
     wait(0.0002)
     if shared.Win == true then
-	print(doeng)
-	if workspace.Values.CurrentRoom == nil then
+	if workspace.Values.CurrentRoom.Value == nil then
 	    getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
 	    doeng = true
 	end
-	if workspace.Values.CurrentRoom ~= nil and doeng == true then
+	if workspace.Values.CurrentRoom.Value ~= nil and doeng == true then
 	   doeng = false
 	   if workspace:FindFirstChild("IntenseObby") then 
 	      if workspace.IntenseObby:FindFirstChild("ENDBLOCK") then
