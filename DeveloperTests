@@ -10,8 +10,20 @@ coroutine.wrap(function()
         FpsWm:Text("FPS : " .. library.fps)
     end
 end)()
+local Floors = Wm:AddWatermark("Floor : Loading")
+coroutine.wrap(function()
+    while wait(.75) do
+        Floors:Text("Loading : " .. tostring(workspace.Values.Floors))
+    end
+end)()
+local Floor = Wm:AddWatermark("Current Floor : Loading")
+coroutine.wrap(function()
+    while wait(.75) do
+        Floor:Text("Current Floor : " .. tostring(workspace.Values.CurrentRoom))
+    end
+end)()
+
 local Notif = library:InitNotifications()
-local waita = 30
 local LoadingScript = Notif:Notify("Loading Regretevator Script. Please wait...", 3, "information")
 
 library.title = "Regretevator OP Script v1.1"
@@ -192,6 +204,9 @@ local Button = Troll:NewButton("Energize (FE Animations)", function(value)
     loadstring(game:HttpGet('https://raw.githubusercontent.com/IlikeyocutgHAH12/FEEGGEG/refs/heads/main/%5BFE%5D%20Energize%20Animation%20Gui.txt'))()
 end)
 
+local Toggle = Floors:NewToggle("Auto Win", false, function(value)
+    shared.Win = value
+end)
 local Toggle = Floors:NewToggle("Auto Coins", false, function(value)
     shared.Farm = value
 end)
@@ -359,9 +374,101 @@ end)
 
 -- Show notification about script loaded
 local FinishedLoading = Notif:Notify("Loaded Script", 4, "success")
+
+local doeng = false
 -- Init floors functions
 while true do
     wait(0.0002)
+    if shared.Win == true then
+	if workspace.Values.CurrentRoom ~= nil
+	wait(0.2)
+	if workspace:FindFirstChild("IntenseObby") then 
+        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.IntenseObby.ENDBLOCK.CFrame
+	Notif:Notify("Detected Floor! IntenseObby", 3, "success")
+    elseif workspace:FindFirstChild("SnowySlope") then 
+	Workspace.SnowySlope.Build.FinishFlag.Part:Destroy()
+	Workspace.SnowySlope.Build.FinishFlag.Part:Destroy()
+	Workspace.SnowySlope.Build.FinishFlag.Part:Destroy()
+	Workspace.SnowySlope.Build.FinishFlag.Part:Destroy()
+        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.SnowySlope.Build.FinishFlag.Part.CFrame
+	Notif:Notify("Detected Floor! SnowySlope", 3, "success")
+    elseif workspace:FindFirstChild("RandomMazeWindows") then
+        Workspace.RandomMazeWindows.Build.Part:Destroy()
+        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.RandomMazeWindows.Build.Part.CFrame
+        Notif:Notify("Detected Floor! RandomMazeWindows", 3, "success")
+    elseif workspace:FindFirstChild("GumballMachine") then     
+        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.GumballMachine.Build.WinPart.CFrame
+        Notif:Notify("Detected Floor! GumballMachine", 3, "success")
+    elseif workspace:FindFirstChild("Obby") then     
+        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Obby.Build.EndPart.CFrame
+        Notif:Notify("Detected Floor! Obby", 3, "success")
+    elseif workspace:FindFirstChild("SuspiciouslyLongRoom") then 
+        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace:FindFirstChild("SuspiciouslyLongRoom").Checkpoints.EndCheckpoint.CFrame
+        Notif:Notify("Detected Floor! SuspiciouslyLongRoom", 3, "success")
+    elseif workspace:FindFirstChild("Minefield") then 
+        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Minefield.Build.Decor.etc.IceCreamTruck.Tube.IcecreamGiver.CFrame
+        Notif:Notify("Detected Floor! Minefield", 3, "success")
+    elseif workspace:FindFirstChild("FloodFillMine") then 
+        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.FloodFillMine.Build.Shield.Neon.CFrame
+        Notif:Notify("Detected Floor! FloodFillMine", 3, "success")
+    elseif workspace:FindFirstChild("FindThePath") then 
+        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.FindThePath.Build.Prototype.SpecPart.CFrame
+        Notif:Notify("Detected Floor! FindThePath", 3, "success")
+    elseif workspace:FindFirstChild("Jeremy") then 
+        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Jeremy.Build.Button:GetPivot()
+        Notif:Notify("Detected Floor! Jeremy, Teleported to the button", 3, "success")
+    elseif workspace:FindFirstChild("RedBallTemple") then 
+        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.RedBallTemple.Build.Ram.HumanoidRootPart.CFrame
+        Notif:Notify("Detected Floor! RedBallTemple", 3, "success")
+    elseif workspace:FindFirstChild("WALL_OF") then 
+        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.WALL_OF.Build.YOU_WIN.CFrame
+        Notif:Notify("Detected Floor! WALL_OF", 3, "success")
+    elseif workspace:FindFirstChild("HALL_OF") then 
+        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.HALL_OF.Build.YOU_WIN.CFrame
+        Notif:Notify("Detected Floor! HALL_OF", 3, "success")
+    elseif workspace:FindFirstChild("TheBackrooms") then 
+        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
+        Notif:Notify("Detected Floor! TheBackrooms", 3, "success")
+    elseif workspace:FindFirstChild("FourCorners") then 
+        shared.corners = true
+        Notif:Notify("Detected Floor! FourCorners", 3, "success")
+    elseif workspace:FindFirstChild("TheBackrooms") then 
+        if workspace:FindFirstChild("Elevator") then 
+            getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
+        end
+        Notif:Notify("Detected Floor! TheBackrooms", 3, "success")
+    elseif workspace:FindFirstChild("TNTRun") then 
+        if workspace:FindFirstChild("Elevator") then 
+            getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
+        end
+        Notif:Notify("Detected Floor! TNTRun, Teleported to the safe zone", 3, "success")
+    elseif workspace:FindFirstChild("TeapotDodgeball") then 
+        shared.tea = true
+        Notif:Notify("Detected Floor! TeapotDodgeball", 3, "success")
+    elseif workspace:FindFirstChild("TeapotTraversal") then 
+        shared.teaalt = true
+        Notif:Notify("Detected Floor! TeapotTraversal", 3, "success")
+    elseif workspace:FindFirstChild("Dance") then 
+        shared.dance = true
+        Notif:Notify("Detected Floor! Dance", 3, "success")
+    elseif workspace:FindFirstChild("Superhighway") then
+        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Superhighway.WinPoint.CFrame
+        Notif:Notify("Detected Floor! Superhighway", 3, "success")
+    elseif workspace:FindFirstChild("StanelyRoom") then
+	workspace.StanelyRoom.Build.CementFloor:Destroy()
+        Notif:Notify("Detected Floor! StanelyRoom, Deleting cement floor...", 3, "information")
+	if not workspace.StanelyRoom.Build:FindFirstChild("CementFloor") then
+	    Notif:Notify("Successfully deleted!", 3, "success")
+	else
+	    Notif:Notify("Failed to delete cement floor, Make sure floor is fully loaded", 3, "error")
+	end
+    elseif workspace:FindFirstChild("3008_Room") then 
+        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace["3008_Room"].Build.Lampert.Face.CFrame
+        Notif:Notify("Teleported to Lampert", 3, "success")
+    else
+	Notif:Notify("No floor found, If you have a floor loaded, this floor is not supported", 3, "error")
+    end
+    end
     if shared.Farm == true then -- Thanks to MrXrer
         for i,v in pairs(workspace:GetDescendants()) do
             if not workspace:FindFirstChild("TNTRun") then
