@@ -89,7 +89,9 @@ local Toggle = Tab1:NewToggle("TP to the PP (Use it if PP is not works)", false,
     shared.PPTeleport = value
 end)
 
-
+while wait() do
+     Lighting.Ambient = Color3(255, 255, 255)
+end
    -- Basic Scripts Tab
 local Speed = Tab1:NewSlider("Player Speed", "", true, "/", {min = 12, max = 300, default = 16}, function(value)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = value
@@ -511,8 +513,6 @@ while true do
 	Notif:Notify("Teleported to the end part", 3, "success")
 	end
 	end
-	end
-        end
 	end
 	end
     elseif workspace:FindFirstChild("WALL_OF") then 
