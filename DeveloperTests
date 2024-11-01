@@ -377,11 +377,13 @@ end)
 -- Show notification about script loaded
 local FinishedLoading = Notif:Notify("Loaded Script", 4, "success")
 
-local doeng = false
 -- Init floors functions
 while true do
     wait(0.0002)
     if shared.Win == true then
+	if workspace.Values.CurrentRoom == nil then
+	    getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
+	end
 	if workspace.Values.CurrentRoom ~= nil then
 	wait(3)
 	if workspace:FindFirstChild("IntenseObby") then 
@@ -443,8 +445,6 @@ while true do
     elseif workspace:FindFirstChild("3008_Room") then 
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace["3008_Room"].Build.Lampert.Face.CFrame
         findAnyClickDetectorInPart(Workspace["3008_Room"].Build.Lampert)
-    else
-	getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
     end
     end
     end
