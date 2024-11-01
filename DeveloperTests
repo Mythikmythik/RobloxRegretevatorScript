@@ -35,13 +35,14 @@ local Credits1 = Main:NewLabel("Script Creator : mythik_25 (Discord)", "center")
 local Credits2 = Main:NewLabel("Send requests and bugs to creator discord", "center")
 local Credits3 = Main:NewLabel("Coin Farm (MODIFIED BY ME) : MrXrer", "center")
 local Credits4 = Main:NewLabel("Energize : illremember", "center")
--- Help Functions
+
+   -- Some helpfull functions
 function getRoot(char)
 	local rootPart = char:FindFirstChild('HumanoidRootPart') or char:FindFirstChild('Torso') or char:FindFirstChild('UpperTorso')
 	return rootPart
 end
 
-   -- Some helpfull functions
+
 function findAnyTouchInsertInPart(part)
     for _, child in ipairs(part:GetChildren()) do
         if child:IsA("TouchInterest") then
@@ -59,13 +60,17 @@ function findAnyClickDetectorInPart(part)
         end
     end
 end
--- Main
 
+-- Main
 local Keybind = Main:NewKeybind("Close Menu", Enum.KeyCode.RightAlt, function(key)
     Init:UpdateKeybind(Enum.KeyCode[key])
 end)
--- Basic Scripts
+local discord = Main:NewButton("Join script discord server!", function(value)
+    setclipboard("https://discord.gg/EDqHYvgX")
+    Notif:Notify("Copied link (paste link into browser)", 3, "information")
+end)
 
+-- Basic Scripts
 local Toggle = Tab1:NewToggle("Auto Press Proximity Prompt", false, function(value)
     shared.PPInsta = value
 end)
