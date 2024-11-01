@@ -382,7 +382,6 @@ local FinishedLoading = Notif:Notify("Loaded Script", 4, "success")
 while true do
     wait(0.0002)
     if shared.Win == true then
-	pcall(function()
 	if workspace.Values.CurrentRoom == nil then
 	    getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
 	end
@@ -458,7 +457,7 @@ while true do
 	end
 	end
 	end
-    elseif workspace:FindFirstChild("Jeremy"):FindFirstChild("Build"):FindFirstChild("Button") then 
+    elseif workspace:FindFirstChild("Jeremy") then 
 	if workspace.Jeremy:FindFirstChild("Build") then
 	if workspace.Jeremy.Build:FindFirstChild("Button") then
            getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Jeremy.Build.Button:GetPivot()
@@ -512,9 +511,9 @@ while true do
 	end
 	end
     elseif workspace:FindFirstChild("3008_Room") then 
-	if workspace.3008_Room:FindFirstChild("Build") then
-	if workspace.3008_Room.Build:FindFirstChild("Lampert") then
-	if workspace.3008_Room.Build:FindFirstChild("Face") then
+	if workspace["3008_Room"]:FindFirstChild("Build") then
+	if workspace["3008_Room"].Build:FindFirstChild("Lampert") then
+	if workspace["3008_Room"].Build:FindFirstChild("Face") then
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace["3008_Room"].Build.Lampert.Face.CFrame
         findAnyClickDetectorInPart(Workspace["3008_Room"].Build.Lampert)
 	end
@@ -544,9 +543,8 @@ while true do
                 if v.Name == "SillyGreenBall" then
                     findAnyTouchInsertInPart(v)
                 end
-		end
+		    end
             end
-	end)
         end
 	end
     if shared.PPInsta == true then  
