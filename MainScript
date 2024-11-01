@@ -176,7 +176,7 @@ end)
 local Toggle = Floors:NewToggle("Auto Win for Four Corners", false, function(value)
     shared.corners = value
 end)
-local Toggle = Floors:NewToggle("Auto Generator for Area 51", false, function(value)
+local Toggle = Floors:NewToggle("Auto Generator for Area 51 (SOMETIMES NOT WORKS)", false, function(value)
     shared.Generator = value
 end)
 local Toggle = Floors:NewToggle("Auto Win on Dance Floor", false, function(value)
