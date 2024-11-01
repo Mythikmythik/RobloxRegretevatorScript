@@ -315,17 +315,13 @@ while true do
     if shared.PPInsta == true then  
         for i,v in ipairs(game:GetService("Workspace"):GetDescendants()) do
             if v:IsA("ProximityPrompt") and v.Name ~= "ItemStockProximityPrompt" then
-                if shared.PPTeleport == true then
-                    getRoot(game.Players.LocalPlayer.Character).CFrame = v.Parent.CFrame
-                end
-                v.HoldDuration = 0
-                fireproximityprompt(v)
-            end
-        end
-        for i,v in ipairs(game:GetService("Workspace"):GetDescendants()) do
-            if v:IsA("ProximityPrompt") and v.Name ~= "ItemStockProximityPrompt" then
-                if shared.PPTeleport == true then
-                    getRoot(game.Players.LocalPlayer.Character).CFrame = v.Parent.CFrame
+                if shared.PPTeleport == true and v.Parent:IsA("BasePart") or v.Parent:IsA("Model") then
+                    if v.Parent:IsA("BasePart") then
+                    	getRoot(game.Players.LocalPlayer.Character).CFrame = v.Parent.CFrame
+		    end
+                    if v.Parent:IsA("Model") then
+                    	getRoot(game.Players.LocalPlayer.Character).CFrame = v.Parent:GetPivot(v)
+		    end
                 end
                 v.HoldDuration = 0
                 fireproximityprompt(v)
