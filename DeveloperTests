@@ -382,7 +382,7 @@ local doeng = false
 while true do
     wait(0.0002)
     if shared.Win == true then
-	if workspace.Values.CurrentRoom ~= nil
+	if workspace.Values.CurrentRoom ~= nil then
 	wait(3)
 	if workspace:FindFirstChild("IntenseObby") then 
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.IntenseObby.ENDBLOCK.CFrame
