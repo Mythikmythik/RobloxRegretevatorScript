@@ -133,6 +133,9 @@ local Button = Floors:NewButton("Auto Complete Floor (NOT ALL FLOORS CAN BE COMP
     elseif workspace:FindFirstChild("FindThePath") then 
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.FindThePath.Build.Prototype.SpecPart.CFrame
         Notif:Notify("Detected Floor! FindThePath", 3, "success")
+    elseif workspace:FindFirstChild("Jeremy") then 
+        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Jeremy.Build.Button:GetPivot()
+        Notif:Notify("Detected Floor! Jeremy, Teleported to the button", 3, "success")
     elseif workspace:FindFirstChild("RedBallTemple") then 
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.RedBallTemple.Build.Ram.HumanoidRootPart.CFrame
         Notif:Notify("Detected Floor! RedBallTemple", 3, "success")
@@ -178,6 +181,10 @@ local Button = Floors:NewButton("Auto Complete Floor (NOT ALL FLOORS CAN BE COMP
 	else
 	    Notif:Notify("Failed to delete cement floor, Make sure floor is fully loaded", 3, "error")
 	end
+    elseif workspace:FindFirstChild("3008_Room") then 
+        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace["3008_Room"].Build.Lampert.Face.CFrame
+        Notif:Notify("Teleported to Lampert", 3, "success")
+    end
     else
 	Notif:Notify("No floor found, If you have a floor loaded, this floor is not supported", 3, "error")
     end
@@ -247,6 +254,12 @@ local Button = Floors:NewButton("Win in Find The Path", function(value)
     if workspace:FindFirstChild("FindThePath") then 
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.FindThePath.Build.Prototype.SpecPart.CFrame
 	Notif:Notify("Teleported to the end", 3, "success")
+    end
+end)
+local Button = Floors:NewButton("Win in Find The Path", function(value)
+    if workspace:FindFirstChild("Jeremy") then 
+        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Jeremy.Build.Button:GetPivot()
+        Notif:Notify("Detected Floor! Jeremy, Teleported to the button", 3, "success")
     end
 end)
 local Button = Floors:NewButton("TP to end in RedBallTemple", function(value)
