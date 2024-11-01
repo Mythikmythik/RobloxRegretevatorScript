@@ -97,7 +97,7 @@ local InfYield = Tab1:NewButton("Infinity Yield", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
     Notif:Notify("Executed IY", 3, "information")
 end)
-
+ getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Superhighway.WinPoint.CFrame
     -- Floors Tab
 local Button = Floors:NewButton("Auto Complete Floor (NOT ALL FLOORS CAN BE COMPLETED)", function()
     
