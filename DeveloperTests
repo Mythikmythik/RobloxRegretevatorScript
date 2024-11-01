@@ -186,6 +186,9 @@ local Button = Floors:NewButton("Auto Complete Floor (NOT ALL FLOORS CAN BE COMP
         Notif:Notify("Detected Floor! Superhighway", 3, "success")
     elseif workspace:FindFirstChild("DriveThru") then
 	Notif:Notify("Are you seriosly...", 3, "alarm")
+    elseif workspace:FindFirstChild("HotelFloor6") then
+        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.HotelFloor6.Build.EndPart.CFrame
+	Notif:Notify("Teleported to the end part", 3, "success")
     elseif workspace:FindFirstChild("StanelyRoom") then
 	workspace.StanelyRoom.Build.CementFloor:Destroy()
         Notif:Notify("Detected Floor! StanelyRoom, Deleting cement floor...", 3, "information")
@@ -354,6 +357,13 @@ local Button = Floors:NewButton("Win in Microsoft Maze", function(value)
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.RandomMazeWindows.Build.Part.CFrame
     end
 end)
+local Button = Floors:NewButton("Win in Hotel Floor 6", function(value)
+    if workspace:FindFirstChild("HotelFloor6") then
+        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.HotelFloor6.Build.EndPart.CFrame
+	Notif:Notify("Teleported to the end part", 3, "success")
+    end
+end)
+
 local Button = Floors:NewButton("TP to Elevator (if you fall into void)", function(value)
     if workspace:FindFirstChild("Elevator") then 
 	Notif:Notify("Teleported to the elevator", 3, "success")
@@ -480,6 +490,14 @@ while true do
 	end
 	end
 	end
+    elseif workspace:FindFirstChild("HotelFloor6") then
+	if workspace.HotelFloor6:FindFirstChild("Build") then
+	if workspace.HotelFloor6.Build:FindFirstChild("EndPart") then
+        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.HotelFloor6.Build.EndPart.CFrame
+	Notif:Notify("Teleported to the end part", 3, "success")
+	end
+	end
+    end
     elseif workspace:FindFirstChild("WALL_OF") then 
 	if workspace.RandomMazeWindows:FindFirstChild("YOU_WIN") then
           getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.WALL_OF.Build.YOU_WIN.CFrame
