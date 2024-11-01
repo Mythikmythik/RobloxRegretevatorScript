@@ -19,26 +19,27 @@ wait(1)
 local Init = library:Init()
 local Main = Init:NewTab("Main")
 
-
+   -- Tabs
 local Tab1 = Init:NewTab("Basic Scripts")
 
 local Floors = Init:NewTab("Floors")
 
 local Troll = Init:NewTab("Troll")
 
-local Label1 = Tab1:NewLabel("Player Modifers", "center")--"left", "center", "right"
+local Label1 = Tab1:NewLabel("Player Modifers", "center")
 
-
-local Credits1 = Main:NewLabel("Script Creator : mythik_25 (Discord)", "center")--"left", "center", "right"
-local Credits2 = Main:NewLabel("Coin Farm (MODIFIED BY ME) : MrXrer", "center")--"left", "center", "right"
-local Credits2 = Main:NewLabel("Energize : illremember", "center")--"left", "center", "right"
+    -- Credits
+local Credits1 = Main:NewLabel("Script Creator : mythik_25 (Discord)", "center")
+local Credits2 = Main:NewLabel("Send requests and bugs to creator discord", "center")
+local Credits3 = Main:NewLabel("Coin Farm (MODIFIED BY ME) : MrXrer", "center")
+local Credits4 = Main:NewLabel("Energize : illremember", "center")
 -- Help Functions
 function getRoot(char)
 	local rootPart = char:FindFirstChild('HumanoidRootPart') or char:FindFirstChild('Torso') or char:FindFirstChild('UpperTorso')
 	return rootPart
 end
 
-
+   -- Some helpfull functions
 function findAnyTouchInsertInPart(part)
     for _, child in ipairs(part:GetChildren()) do
         if child:IsA("TouchInterest") then
@@ -69,7 +70,7 @@ end)
 
 
 
-
+   -- Basic Scripts Tab
 local Speed = Tab1:NewSlider("Player Speed", "", true, "/", {min = 12, max = 300, default = 16}, function(value)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = value
 end)
@@ -85,8 +86,8 @@ end)
 local InfYield = Tab1:NewButton("Infinity Yield", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
 end)
--- Floors
 
+    -- Floors Tab
 local Button = Floors:NewButton("Auto Complete Floor (NOT ALL FLOORS CAN BE COMPLETED)", function()
     
     if workspace:FindFirstChild("IntenseObby") then 
@@ -242,14 +243,6 @@ local Button = Floors:NewButton("Collect All Rocks", function(value)
         end
     end
 end)
-local Button = Floors:NewButton("Click all buttons", function(value)
-        for i,v in pairs(workspace:GetDescendants()) do
-                if v.Name == "Button" then
-                    findAnyClickDetectorInPart(v)
-                    fireproximityprompt(v)
-                end
-            end
-end)
 local Button = Floors:NewButton("Win in Obby", function(value)
     if workspace:FindFirstChild("Obby") then     
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Obby.Build.EndPart.CFrame
@@ -284,11 +277,12 @@ local Button = Floors:NewButton("TP to End in Intense Obby", function(value)
     end
 end)
 
--- Loaded
+-- Show notification about script loaded
 local FinishedLoading = Notif:Notify("Loaded Script", 4, "success")
+-- Init floors functions
 while true do
     wait(0.0002)
-    if shared.Farm == true then
+    if shared.Farm == true then -- Thanks to MrXrer
         for i,v in pairs(workspace:GetDescendants()) do
             if not workspace:FindFirstChild("TNTRun") then
                 if v.Name == "Coin" or v.Name == "Coins" and v:IsA("BasePart") then
@@ -369,3 +363,4 @@ while true do
         end
     end
 end
+-- That's all! Send requests and bugs about scripts to me (mythik_25)
