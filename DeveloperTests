@@ -443,6 +443,8 @@ while true do
     elseif workspace:FindFirstChild("3008_Room") then 
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace["3008_Room"].Build.Lampert.Face.CFrame
         findAnyClickDetectorInPart(Workspace["3008_Room"].Build.Lampert)
+    else
+	getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
     end
     end
     end
@@ -475,8 +477,8 @@ while true do
         for i,v in ipairs(game:GetService("Workspace"):GetDescendants()) do
             if v:IsA("ProximityPrompt") and v.Name ~= "ItemStockProximityPrompt" then
                 if shared.PPTeleport == true then
+			
 		    if v.Parent ~= nil then
-			wait(0.09)
                     if v.Parent:IsA("BasePart") then
                     	getRoot(game.Players.LocalPlayer.Character).CFrame = v.Parent.CFrame
 		    end
@@ -487,6 +489,9 @@ while true do
                 end
                 v.HoldDuration = 0
                 fireproximityprompt(v)
+                if shared.PPTeleport == true then
+			wait(0.09)
+		end
             end
         end
     end
