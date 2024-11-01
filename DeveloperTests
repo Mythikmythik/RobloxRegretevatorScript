@@ -97,7 +97,6 @@ local InfYield = Tab1:NewButton("Infinity Yield", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
     Notif:Notify("Executed IY", 3, "information")
 end)
- getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Superhighway.WinPoint.CFrame
     -- Floors Tab
 local Button = Floors:NewButton("Auto Complete Floor (NOT ALL FLOORS CAN BE COMPLETED)", function()
     
@@ -171,7 +170,7 @@ local Button = Floors:NewButton("Auto Complete Floor (NOT ALL FLOORS CAN BE COMP
         shared.dance = true
         Notif:Notify("Detected Floor! Dance", 3, "success")
     elseif workspace:FindFirstChild("Superhighway") then
-        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Superhighway.CheckpointRespawn.WinPoint.CFrame
+        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Superhighway.WinPoint.CFrame
         Notif:Notify("Detected Floor! Superhighway", 3, "success")
     elseif workspace:FindFirstChild("StanelyRoom") then
 	workspace.StanelyRoom.Build.CementFloor:Destroy()
@@ -231,7 +230,7 @@ local Button = Floors:NewButton("Win in Stanely Room", function(value)
 end)
 local Button = Floors:NewButton("Win in Superhighway", function(value)
     if workspace:FindFirstChild("Superhighway") then
-        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Superhighway.CheckpointRespawn.WinPoint.CFrame
+        ggetRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Superhighway.WinPoint.CFrame
         Notif:Notify("Detected Floor! Superhighway, Teleporting to last checkpoint...", 3, "success")
 	wait(0.2)
 	Notif:Notify("Detected Floor! Superhighway, Teleported!", 1, "success")
