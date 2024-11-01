@@ -333,7 +333,7 @@ while true do
     end
     if shared.tea == true then
         if workspace:FindFirstChild("TeapotDodgeball") then 
-            getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace:FindFirstChild("TeapotDodgeball").Build.Finish.CFrame
+            getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace:FindFirstChild("TeapotDodgeball"):FindFirstChild("Build").Finish.CFrame
         end
             
         if not workspace:FindFirstChild("TeapotDodgeball") then 
@@ -342,7 +342,7 @@ while true do
     end
     if shared.corners == true then
         if workspace:FindFirstChild("FourCorners") then 
-            getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace:FindFirstChild("FourCorners").Build.InvisibleWalls.Ceiling.CFrame
+            getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace:FindFirstChild("FourCorners"):FindFirstChild("Build").InvisibleWalls.Ceiling.CFrame
         end
         if not workspace:FindFirstChild("FourCorners") then 
             getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
@@ -350,7 +350,7 @@ while true do
     end
     if shared.teaalt == true then
         if workspace:FindFirstChild("TeapotTraversal") then 
-            getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace:FindFirstChild("TeapotTraversal").Build.Finish.Stairs.End.CFrame
+            getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace:FindFirstChild("TeapotTraversal"):FindFirstChild("Build").Finish.Stairs.End.CFrame
         end
         if not workspace:FindFirstChild("TeapotTraversal") then 
             getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
@@ -358,7 +358,7 @@ while true do
     end
     if shared.dance == true then
         if workspace:FindFirstChild("Dance") then 
-            getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace:FindFirstChild("Dance").Build.Decor.Top.Truss.CFrame
+            getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace:FindFirstChild("Dance"):FindFirstChild("Build").Decor.Top.Truss.CFrame
         end
         if not workspace:FindFirstChild("Dance") then 
             getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
