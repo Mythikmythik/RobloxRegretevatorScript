@@ -287,6 +287,8 @@ while true do
             if not workspace:FindFirstChild("TNTRun") then
                 if v.Name == "Coin" or v.Name == "Coins" and v:IsA("BasePart") then
                     getRoot(game.Players.LocalPlayer.Character).CFrame = v.CFrame
+		    wait(0.05)
+		    getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
                 end
                 if v.Name == "ThingButton" and v:IsA("ProximityPrompt") then
                     fireproximityprompt(v)
