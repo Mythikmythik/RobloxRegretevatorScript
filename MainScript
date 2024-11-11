@@ -1,7 +1,7 @@
+-- Regretevator Script. Last test 11.11.2024 (Not patched)
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Consistt/Ui/main/UnLeaked"))()
 local search = game.Workspace:GetDescendants()
-
-local Wm = library:Watermark("Regretevator OP Script | v 1.1 | " .. "Hi, " .. library:GetUsername())
+local Wm = library:Watermark("Regretevator OP Script | v 1.2 | " .. "Hi, " .. library:GetUsername())
 local FpsWm = Wm:AddWatermark("FPS : Loading")
 coroutine.wrap(function()
     while wait(.75) do
@@ -24,7 +24,7 @@ end)()
 local Notif = library:InitNotifications()
 local LoadingScript = Notif:Notify("Loading Regretevator Script. Please wait...", 3, "information")
 
-library.title = "Regretevator OP Script v1.1"
+library.title = "Regretevator OP Script v1.2"
 
 library:Introduction()
 wait(1)
@@ -87,13 +87,15 @@ end)
 local Toggle = Tab1:NewToggle("TP to the PP (Use it if PP is not works)", false, function(value)
     shared.PPTeleport = value
 end)
-
+local Toggle = Tab1:NewToggle("Full Bright", false, function(value)
+    shared.light = value
+end)
 
    -- Basic Scripts Tab
 local Speed = Tab1:NewSlider("Player Speed", "", true, "/", {min = 12, max = 300, default = 16}, function(value)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = value
 end)
-local Jump = Tab1:NewSlider("Player Jump Power", "", true, "/", {min = 10, max = 50, default = 30}, function(value)
+local Jump = Tab1:NewSlider("Player Jump Power", "", true, "/", {min = 1, max = 50, default = 30}, function(value)
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = value
 end)
 local Keybind = Tab1:NewKeybind("Sit (idk why)", Enum.KeyCode.Z, function(key)
@@ -107,9 +109,13 @@ local InfYield = Tab1:NewButton("Infinity Yield", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
     Notif:Notify("Executed IY", 3, "information")
 end)
+local Reset = Tab1:NewButton("Respawn player", function()
+    game:GetService("ReplicatedStorage").RE.Respawn:FireServer()
+    Notif:Notify("Please wait...", 2, "information")
+end)
+
     -- Floors Tab
 local Button = Floors:NewButton("Auto Complete Floor (NOT ALL FLOORS CAN BE COMPLETED)", function()
-    pcall(function()
     if workspace:FindFirstChild("IntenseObby") then 
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.IntenseObby.ENDBLOCK.CFrame
 	Notif:Notify("Detected Floor! IntenseObby", 3, "success")
@@ -127,6 +133,9 @@ local Button = Floors:NewButton("Auto Complete Floor (NOT ALL FLOORS CAN BE COMP
     elseif workspace:FindFirstChild("GumballMachine") then     
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.GumballMachine.Build.WinPart.CFrame
         Notif:Notify("Detected Floor! GumballMachine", 3, "success")
+    elseif workspace:FindFirstChild("WHEEL_OF") then 
+        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.HALL_OF.Build.YOU_WIN.CFrame
+	    Notif:Notify("Teleported to the safe zone", 3, "success")
     elseif workspace:FindFirstChild("Obby") then     
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Obby.Build.EndPart.CFrame
         Notif:Notify("Detected Floor! Obby", 3, "success")
@@ -155,19 +164,15 @@ local Button = Floors:NewButton("Auto Complete Floor (NOT ALL FLOORS CAN BE COMP
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.HALL_OF.Build.YOU_WIN.CFrame
         Notif:Notify("Detected Floor! HALL_OF", 3, "success")
     elseif workspace:FindFirstChild("TheBackrooms") then 
-        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
+        wait()
+        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame + Vector3.new(0, 20, 7)
         Notif:Notify("Detected Floor! TheBackrooms", 3, "success")
     elseif workspace:FindFirstChild("FourCorners") then 
         shared.corners = true
         Notif:Notify("Detected Floor! FourCorners", 3, "success")
-    elseif workspace:FindFirstChild("TheBackrooms") then 
-        if workspace:FindFirstChild("Elevator") then 
-            getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
-        end
-        Notif:Notify("Detected Floor! TheBackrooms", 3, "success")
     elseif workspace:FindFirstChild("TNTRun") then 
         if workspace:FindFirstChild("Elevator") then 
-            getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
+            getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Concrete.CFrame + Vector3.new(0, 20, 7)
         end
         Notif:Notify("Detected Floor! TNTRun, Teleported to the safe zone", 3, "success")
     elseif workspace:FindFirstChild("TeapotDodgeball") then 
@@ -184,33 +189,35 @@ local Button = Floors:NewButton("Auto Complete Floor (NOT ALL FLOORS CAN BE COMP
         Notif:Notify("Detected Floor! Superhighway", 3, "success")
     elseif workspace:FindFirstChild("DriveThru") then
 	Notif:Notify("Are you seriosly...", 3, "alarm")
+    elseif workspace:FindFirstChild("HotelFloor6") then
+        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.HotelFloor6.Build.EndPart.CFrame
+	Notif:Notify("Teleported to the end part", 3, "success")
     elseif workspace:FindFirstChild("StanelyRoom") then
 	workspace.StanelyRoom.Build.CementFloor:Destroy()
-        Notif:Notify("Detected Floor! StanelyRoom, Deleting cement floor...", 3, "information")
-	if not workspace.StanelyRoom.Build:FindFirstChild("CementFloor") then
-	    Notif:Notify("Successfully deleted!", 3, "success")
-	else
-	    Notif:Notify("Failed to delete cement floor, Make sure floor is fully loaded", 3, "error")
-	end
-    elseif workspace:FindFirstChild("3008_Room") then 
-        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace["3008_Room"].Build.Lampert.Face.CFrame
-        Notif:Notify("Teleported to Lampert", 3, "success")
+    Notif:Notify("Detected Floor! StanelyRoom", 3, "information")
+        Notif:Notify("Detected Floor! StanelyRoom, Teleporting to the end...", 3, "success")
+        getRoot(game.Players.LocalPlayer.Character).CFrame = workspace.StanelyRoom.Build.Generated.Ending.Jimmy:GetPivot()
+         wait(0.2)
+        Notif:Notify("Teleported!", 1, "success")
     else
-	Notif:Notify("No floor found, If you have a floor loaded, this floor is not supported", 3, "error")
+	    Notif:Notify("No supported floor found. Teleported to the safe zone for safety", 3, "error")
+
     end
-    end)
 end)
 
 local Button = Troll:NewButton("Energize (FE Animations)", function(value)
     loadstring(game:HttpGet('https://raw.githubusercontent.com/IlikeyocutgHAH12/FEEGGEG/refs/heads/main/%5BFE%5D%20Energize%20Animation%20Gui.txt'))()
 end)
-
+local Button = Troll:NewButton("Infinity Ragdoll", function(value)
+    game:GetService("ReplicatedStorage").RE.RagdollPlayer:FireServer("Block_id675")
+end)
 local Toggle = Floors:NewToggle("Auto Win", false, function(value)
     shared.Win = value
 end)
 local Toggle = Floors:NewToggle("Auto Coins", false, function(value)
     shared.Farm = value
 end)
+
 local Toggle = Floors:NewToggle("Auto Win in Tea Bounce", false, function(value)
     shared.tea = value
 end)
@@ -228,7 +235,7 @@ local Toggle = Floors:NewToggle("Auto Win on Dance Floor", false, function(value
 end)
 local Button = Floors:NewButton("Win in Backrooms", function(value)
     if workspace:FindFirstChild("Elevator") then 
-        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
+        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Concrete.CFrame + Vector3.new(0, 20, 7)
         Notif:Notify("Teleported to the safe zone", 3, "success")
     end
 end)
@@ -242,6 +249,14 @@ local Button = Floors:NewButton("Destroy Cement in Stanely Room", function(value
 	else
 	    Notif:Notify("Failed to delete cement floor, Make sure floor is fully loaded", 3, "error")
 	end
+    end
+end)
+local Button = Floors:NewButton("Win in Stanely Room", function(value)
+    if workspace:FindFirstChild("StanelyRoom") then
+        Notif:Notify("Detected Floor! StanelyRoom, Teleporting to the end...", 3, "success")
+	getRoot(game.Players.LocalPlayer.Character).CFrame = workspace.StanelyRoom.Build.Generated.Ending.Jimmy:GetPivot()
+	wait(0.2)
+	Notif:Notify("Teleported!", 1, "success")
     end
 end)
 local Button = Floors:NewButton("Win in Superhighway", function(value)
@@ -294,6 +309,16 @@ local Button = Floors:NewButton("Win HALL OF", function(value)
 	Notif:Notify("Teleported to the end", 3, "success")
     end
 end)
+local Button = Floors:NewButton("Win WHEEL OF", function(value)
+    if workspace:FindFirstChild("WHEEL_OF") then 
+        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.HALL_OF.Build.YOU_WIN.CFrame
+	    Notif:Notify("Teleported to the safe zone", 3, "success")
+    end
+end)
+
+
+
+
 local Button = Floors:NewButton("Win in SuspiciouslyLongRoom", function(value)
     if workspace:FindFirstChild("SuspiciouslyLongRoom") then 
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace:FindFirstChild("SuspiciouslyLongRoom").Checkpoints.EndCheckpoint.CFrame
@@ -313,15 +338,69 @@ local Button = Tab1:NewButton("Anti Buck Effect follower (monster will delete)",
     end
 end)
 
-local Button = Floors:NewButton("Collect All Rocks", function(value)
+local Button = Floors:NewButton("Collect All Rocks (Collect the rocks)", function(value)
     Notif:Notify("Clicking on the rocks... (Don't click anything with buttons now!)", 10, "alert")
     for i,v in pairs(workspace:GetDescendants()) do
         if v.Name == "Rock" then
             task.wait(0.1)
+            notif:Notify("Found rock.", 1, "success")
             findAnyClickDetectorInPart(v)
         end
     end
 end)
+local Button = Floors:NewButton("Click on all cardboxes (Find Jaoba)", function(value)
+    Notif:Notify("Clicking on the boxes... (Don't click anything with buttons now!)", 10, "alert")
+    for i,v in pairs(workspace:GetDescendants()) do
+        if v.Name == "cardboard_box" then
+            task.wait(0.1)
+            notif:Notify("Found box.", 1, "success")
+            findAnyClickDetectorInPart(v)
+        end
+    end
+end)
+local Button = Floors:NewButton("Click All Doors (cardboard rooms)", function(value)
+    Notif:Notify("Clicking on the doors... (Don't click anything with buttons now!)", 10, "alert")
+    for i,v in pairs(workspace:GetDescendants()) do
+        if v.Name == "Door" then
+            task.wait(0.1)
+            notif:Notify("Found door.", 1, "success")
+            findAnyClickDetectorInPart(v)
+        end
+    end
+end)
+local Button = Floors:NewButton("Collect All Pages (FunnyMaze)", function(value)
+    Notif:Notify("Clicking on the pages... (Don't click anything with buttons now!)", 10, "alert")
+    for i,v in pairs(workspace:GetDescendants()) do
+        if v.Name == "Note" and v:IsA("BasePart") then
+            task.wait(0.1)
+            Notif:Notify("Found page", 1, "alert")
+            findAnyClickDetectorInPart(v)
+        end
+    end
+end)
+local Button = Floors:NewButton("Close All Valves (Infected))", function(value)
+    Notif:Notify("Firing proximity prompts... (Don't press anything with keys now!)", 10, "alert")
+    for i,v in pairs(workspace:GetDescendants()) do
+        if v.Name == "ValvePrompt" and v.Parent:IsA("BasePart") then
+            getRoot(game.Players.LocalPlayer.Character).CFrame = v.Parent.CFrame
+            task.wait(0.2)
+            fireproximityprompt(v)
+        end
+    end
+end)
+local Button = Floors:NewButton("Click on all emergency buttons (JeremboFabric)", function(value)
+    Notif:Notify("Clicking on the buttons... (Don't click anything with buttons now!)", 10, "alert")
+    for i,v in pairs(workspace:GetDescendants()) do
+        if v.Parent.Name == "Prim" and v.Name == "Prompt" then
+            fireproximityprompt(v)
+            getRoot(game.Players.LocalPlayer.Character).CFrame = v.Parent.CFrame
+            fireproximityprompt(v)
+            task.wait(0.2)
+            fireproximityprompt(v)
+        end
+    end
+end)
+
 local Button = Floors:NewButton("Win in Obby", function(value)
     if workspace:FindFirstChild("Obby") then     
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Obby.Build.EndPart.CFrame
@@ -341,10 +420,11 @@ local Button = Floors:NewButton("Win in Microsoft Maze", function(value)
         getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.RandomMazeWindows.Build.Part.CFrame
     end
 end)
+
 local Button = Floors:NewButton("TP to Elevator (if you fall into void)", function(value)
     if workspace:FindFirstChild("Elevator") then 
 	Notif:Notify("Teleported to the elevator", 3, "success")
-        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
+        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Concrete.CFrame + Vector3.new(0, 20, 7)
     end
 end)
 local Button = Floors:NewButton("TP to Finish in Snow Slope", function(value)
@@ -374,10 +454,14 @@ while true do
     wait(0.0002)
     if shared.Win == true then
 	if workspace.Values.CurrentRoom.Value == nil then
-	    getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
+        wait(7)
+	    getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Concrete.CFrame + Vector3.new(0, 20, 7)
 	    doeng = true
 	end
 	if workspace.Values.CurrentRoom.Value ~= nil and doeng == true then
+	   print("Floor ready")
+	   wait(3.6)
+	   print("Floor loaded, Beating the floor...")
 	   doeng = false
 	   if workspace:FindFirstChild("IntenseObby") then 
 	      if workspace.IntenseObby:FindFirstChild("ENDBLOCK") then
@@ -411,7 +495,6 @@ while true do
     elseif workspace:FindFirstChild("Obby") then    
 	if workspace.Obby:FindFirstChild("Build") then
 	if workspace.Obby.Build:FindFirstChild("EndPart") then
-         wait(3.6)
          getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Obby.Build.EndPart.CFrame
 	end
 	end
@@ -465,6 +548,24 @@ while true do
 	end
 	end
 	end
+    elseif workspace:FindFirstChild("HotelFloor6") then
+	if workspace.HotelFloor6:FindFirstChild("Build") then
+	if workspace.HotelFloor6.Build:FindFirstChild("EndPart") then
+        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.HotelFloor6.Build.EndPart.CFrame
+	    Notif:Notify("Teleported to the end part", 3, "success")
+	end
+	end
+    elseif workspace:FindFirstChild("StanelyRoom") then
+	if workspace.HotelFloor6:FindFirstChild("Build") then
+	if workspace.HotelFloor6.Build:FindFirstChild("Generated") then
+	if workspace.HotelFloor6.Build.Generated:FindFirstChild("Ending") then
+	if workspace.HotelFloor6.Build.Generated.Ending:FindFirstChild("Jimmy") then
+        getRoot(game.Players.LocalPlayer.Character).CFrame = workspace.StanelyRoom.Build.Generated.Ending.Jimmy:GetPivot()
+	Notif:Notify("Teleported to the end part", 3, "success")
+	end
+	end
+	end
+    end
     elseif workspace:FindFirstChild("WALL_OF") then 
 	if workspace.RandomMazeWindows:FindFirstChild("YOU_WIN") then
           getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.WALL_OF.Build.YOU_WIN.CFrame
@@ -473,17 +574,15 @@ while true do
 	if workspace.RandomMazeWindows:FindFirstChild("YOU_WIN") then
           getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.HALL_OF.Build.YOU_WIN.CFrame
 	end
-    elseif workspace:FindFirstChild("TheBackrooms") then 
-        getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
     elseif workspace:FindFirstChild("FourCorners") then 
         shared.corners = true
     elseif workspace:FindFirstChild("TheBackrooms") then 
         if workspace:FindFirstChild("Elevator") then 
-            getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
+            getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Concrete.CFrame + Vector3.new(0, 20, 7)
         end
     elseif workspace:FindFirstChild("TNTRun") then 
         if workspace:FindFirstChild("Elevator") then 
-            getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
+            getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Concrete.CFrame + Vector3.new(0, 20, 7)
         end
     elseif workspace:FindFirstChild("TeapotDodgeball") then 
         shared.tea = true
@@ -491,6 +590,8 @@ while true do
         shared.teaalt = true
     elseif workspace:FindFirstChild("Dance") then 
         shared.dance = true
+    elseif workspace:FindFirstChild("FourCorners") then 
+        shared.corners = true
     elseif workspace:FindFirstChild("Superhighway") then
 	if workspace.Superhighway:FindFirstChild("WinPoint") then
             getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Superhighway.WinPoint.CFrame
@@ -523,7 +624,7 @@ while true do
                 if v.Name == "Coin" or v.Name == "Coins" and v:IsA("BasePart") and not v.Parent:IsA("Motor6D") then
                     getRoot(game.Players.LocalPlayer.Character).CFrame = v.CFrame
 		    wait(0.05)
-		    getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
+		    getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Concrete.CFrame + Vector3.new(0, 20, 7)
                 end
                 if v.Name == "ThingButton" and v:IsA("ProximityPrompt") then
                     fireproximityprompt(v)
@@ -545,20 +646,22 @@ while true do
         for i,v in ipairs(game:GetService("Workspace"):GetDescendants()) do
             if v:IsA("ProximityPrompt") and v.Name ~= "ItemStockProximityPrompt" then
                 if shared.PPTeleport == true then
-			
 		    if v.Parent ~= nil then
                     if v.Parent:IsA("BasePart") then
                     	getRoot(game.Players.LocalPlayer.Character).CFrame = v.Parent.CFrame
+			fireproximityprompt(v)
 		    end
                     if v.Parent:IsA("Model") and not v:FindFirstChild("Humanoid") then
                     	getRoot(game.Players.LocalPlayer.Character).CFrame = v.Parent:GetPivot(v)
+			fireproximityprompt(v)
 		    end
 		    end
                 end
                 v.HoldDuration = 0
                 fireproximityprompt(v)
                 if shared.PPTeleport == true then
-			wait(0.09)
+		    fireproximityprompt(v)
+		    wait(0.09)
 		end
             end
         end
@@ -584,7 +687,7 @@ while true do
 	end
 	end
         if not workspace:FindFirstChild("TeapotDodgeball") then 
-            getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
+            getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Concrete.CFrame + Vector3.new(0, 20, 7)
 	    shared.tea = false
         end
     end
@@ -599,7 +702,7 @@ while true do
 	end
 	end
         if not workspace:FindFirstChild("FourCorners") then 
-            getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
+            getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Concrete.CFrame + Vector3.new(0, 20, 7)
 	    shared.corners = false
         end
     end
@@ -609,14 +712,14 @@ while true do
 	if workspace.TeapotTraversal.Build:FindFirstChild("Finish") then
 	if workspace.TeapotTraversal.Build.Finish:FindFirstChild("Stairs") then
 	if workspace.TeapotTraversal.Build.Finish.Stairs:FindFirstChild("End") then
-            getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.TeapotTraversal.Build.Finish.Stairs.End.CFrame
+            getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.TeapotTraversal.Build.Finish.Stairs.End.CFrame + CFrame.new(0, 20, 0)
         end
 	end
 	end
 	end
 	end
         if not workspace:FindFirstChild("TeapotTraversal") then 
-            getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
+            getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Concrete.CFrame + Vector3.new(0, 20, 7)
 	    shared.teaalt = false
         end
     end
@@ -626,16 +729,21 @@ while true do
 	if workspace.Dance.Build:FindFirstChild("Decor") then
 	if workspace.Dance.Build.Decor:FindFirstChild("Top") then
 	if workspace.Dance.Build.Decor.Top:FindFirstChild("Truss") then
-            getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace:FindFirstChild("Dance")
+            getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Build.Decor.Top.Truss
         end
 	end
 	end
 	end
 	end
         if not workspace:FindFirstChild("Dance") then 
-            getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Light.CFrame
-	    shared.dance = false
+            getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Concrete.CFrame + Vector3.new(0, 20, 7)
+	        shared.dance = false
         end
     end
+    if shared.light == true then
+       local Lighting = game:GetService("Lighting") 
+	   Lighting.Brightness = 2
+	   Lighting.ClockTime = 14
+    end
 end
--- That's all! Send requests and bugs about scripts to me (mythik_25)
+-- That's all! Send requests and bugs about scripts to me (mythik_25) bugs about scripts to me (mythik_25)
