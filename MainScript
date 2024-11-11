@@ -200,8 +200,8 @@ local Button = Floors:NewButton("Auto Complete Floor (NOT ALL FLOORS CAN BE COMP
          wait(0.2)
         Notif:Notify("Teleported!", 1, "success")
     else
-	    Notif:Notify("No supported floor found. Teleported to the safe zone for safety", 3, "error")
-
+	Notif:Notify("No supported floor found. Teleported to the safe zone for safety", 3, "error")
+	getRoot(game.Players.LocalPlayer.Character).CFrame = Workspace.Elevator.Ceiling.Concrete.CFrame + Vector3.new(0, 20, 7
     end
 end)
 
