@@ -1,4 +1,4 @@
--- Regretevator Script. Last test 11.14.2024 (Not patched)
+-- Regretevator Script
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Consistt/Ui/main/UnLeaked"))()
 local search = game.Workspace:GetDescendants()
 local Wm = library:Watermark("Regretevator OP Script | v 1.2 | " .. "Hi, " .. library:GetUsername())
